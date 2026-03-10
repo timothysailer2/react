@@ -1,22 +1,21 @@
-import "./NavBar.css"
+function Navbar() {
 
-import { Link } from "react-router-dom";
-
-function NavBar() {
   return (
-    <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-      <div className="container">
 
-        <Link className="navbar-brand" to="/">My Store</Link>
+    <nav className="navbar">
 
-        <div>
-          <Link className="nav-link text-white" to="/">Home</Link>
-          <Link className="nav-link text-white" to="/catalog">Catalog</Link>
-        </div>
+      <h2>React Store</h2>
 
-      </div>
+      <ul>
+        <li>Home</li>
+        <li>Products</li>
+        <li>Cart</li>
+      </ul>
+
     </nav>
+
   );
+
 }
 
-export default NavBar;
+export default Navbar;

@@ -1,28 +1,33 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-
-import Home from "./pages/Home";
-import Catalog from "./pages/Catalog";
+import Navbar from "./components/Navbar";
+import Product from "./components/Product";
+import products from "./data/products";
+import "./App.css";
 
 function App() {
+
   return (
-    <BrowserRouter>
 
-      <NavBar />
+    <div>
 
-      <div className="container mt-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalog" element={<Catalog />} />
-        </Routes>
+      <Navbar />
+
+      <div className="products-container">
+
+        {products.map((prod) => (
+
+          <Product
+            key={prod.id}
+            product={prod}
+          />
+
+        ))}
+
       </div>
 
-      <Footer />
+    </div>
 
-    </BrowserRouter>
   );
+
 }
 
 export default App;

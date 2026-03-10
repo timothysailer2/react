@@ -1,33 +1,33 @@
-function Product({product}) {
+import QuantityPicker from "./QuantityPicker";
 
-  const addToCart = () => {
-    alert(product.name + " added to cart!");
+function Product({ product }) {
+
+  const handleQuantityChange = (qty) => {
+    console.log(product.title + " quantity:", qty);
   };
 
   return (
-    <div className="card p-3">
 
-      <img src={product.image} className="card-img-top"/>
+    <div className="product-card">
 
-      <div className="card-body">
+      <img src={product.image} />
 
-        <h5>{product.name}</h5>
+      <h3>{product.title}</h3>
 
-        <p>{product.description}</p>
+      <p className="price">${product.price}</p>
 
-        <p><strong>${product.price}</strong></p>
+      <QuantityPicker
+        onQuantityChange={handleQuantityChange}
+      />
 
-        <button
-          className="btn btn-primary"
-          onClick={addToCart}
-        >
-          Add to Cart
-        </button>
-
-      </div>
+      <button className="add-btn">
+        Add to Cart
+      </button>
 
     </div>
+
   );
+
 }
 
 export default Product;
